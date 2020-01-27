@@ -587,7 +587,7 @@ NTSTATUS RiffaReadHardwareIds(IN PDEVICE_EXTENSION DevExt) {
 
 	// Read DevicePropertyBusNumber.
 	status = IoGetDeviceProperty(pdo, DevicePropertyBusNumber, sizeof(UINT32),
-		(PVOID)&pciBus, &length);
+		(PVOID)&pciBus, (PULONG)&length);
 	if(!NT_SUCCESS(status)) {
 		DbgPrintEx(DPFLTR_IHVDRIVER_ID, DPFLTR_ERROR_LEVEL,
 			"riffa: IoGetDeviceProperty failed\n");
@@ -596,7 +596,7 @@ NTSTATUS RiffaReadHardwareIds(IN PDEVICE_EXTENSION DevExt) {
 
 	// Read DevicePropertyAddress (contains device and function).
 	status = IoGetDeviceProperty(pdo, DevicePropertyAddress, sizeof(UINT32),
-		(PVOID)&pciAddr, &length);
+		(PVOID)&pciAddr, (PULONG)&length);
 	if(!NT_SUCCESS(status)) {
 		DbgPrintEx(DPFLTR_IHVDRIVER_ID, DPFLTR_ERROR_LEVEL,
 			"riffa: IoGetDeviceProperty failed\n");
@@ -611,7 +611,7 @@ NTSTATUS RiffaReadHardwareIds(IN PDEVICE_EXTENSION DevExt) {
 	// Read Device HardwareID. Should be something like:
 	// PCI\VEN_10B5&DEV_515A&SUBSYS_905610B5&REV_02
 	status = IoGetDeviceProperty(pdo, DevicePropertyHardwareID, 2048,
-		(PVOID)hwIds, &length);
+		(PVOID)hwIds, (PULONG)&length);
 	if(!NT_SUCCESS(status)) {
 		DbgPrintEx(DPFLTR_IHVDRIVER_ID, DPFLTR_ERROR_LEVEL,
 			"riffa: IoGetDeviceProperty failed\n");

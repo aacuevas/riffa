@@ -498,8 +498,16 @@ always @ (*) begin
 	else
 		_rErr = (rErr | (RX_DONE & RX_ERR) | (SG_DONE & SG_ERR));
 end
-
-
+/*
+vio_4 reader_probe (
+  .clk(CLK),              // input wire clk
+  .probe_in0(rMainState),  // input wire [5 : 0] probe_in0
+  .probe_in1(rRxState),  // input wire [7 : 0] probe_in1
+  .probe_in2(rLen),  // input wire [9 : 0] probe_in2
+  .probe_in3(rReadWords),  // input wire [31 : 0] probe_in3
+  .probe_in4(rErr),  // input wire [0 : 0] probe_in4
+  .probe_in5(rRecvdWords)  // input wire [31 : 0] probe_in5
+);*/
 
 /*
 wire [35:0] wControl0;

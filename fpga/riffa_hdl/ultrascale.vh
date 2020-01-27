@@ -344,7 +344,7 @@
 `define UPKT_REQ_RD 4'b0000
 `define UPKT_REQ_WR 4'b0001
 `define UPKT_MSG 4'b1100
-
+`ifdef NODEF
 function [ `EXT_TYPE_W - 1: 0 ] upkt_to_trellis_type;
     input [`UPKT_TYPE_W : 0 ] WR_UPKT_TYPE;
     begin
@@ -374,7 +374,7 @@ function [`UPKT_TYPE_W - 1 : 0 ] trellis_to_upkt_type;
         /* verilator lint_on CASEX */
     end
 endfunction // if
-
+`endif 
 `endif
 
 

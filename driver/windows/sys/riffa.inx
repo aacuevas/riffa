@@ -73,11 +73,10 @@ ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
 StartType      = 3                  ; SERVICE_DEMAND_START
 ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
 ServiceBinary  = %12%\riffa.sys                            
-AddReg         = RIFFA_Parameters_AddReg
 
 ;-------------- Coinstaller installation
-[DestinationDirs]
-CoInstaller_CopyFiles = 11
+;[DestinationDirs]
+;CoInstaller_CopyFiles = 11
 
 [RIFFA_Inst.NT.CoInstallers]
 AddReg=CoInstaller_AddReg
@@ -86,8 +85,8 @@ CopyFiles=CoInstaller_CopyFiles
 [CoInstaller_CopyFiles]
 WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll
 
-[SourceDisksFiles]
-WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll=1 ; make sure the number matches with SourceDisksNames
+;[SourceDisksFiles]
+;WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll=1 ; make sure the number matches with SourceDisksNames
 
 [CoInstaller_AddReg]
 HKR,,CoInstallers32,0x00010000, "WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll,WdfCoInstaller"
@@ -104,5 +103,6 @@ ClassName = "RIFFA Devices"
 RIFFA.SVCDESC = "Driver Service for RIFFA FPGAs"
 RIFFA.XILINXDESC = "Xilinx(R) FPGA"
 RIFFA.ALTERADESC = "Altera(R) FPGA"
+RIFFA.DEBUG = " Riffa Driver"
 DISK_NAME = "RIFFA Install Disk"
 

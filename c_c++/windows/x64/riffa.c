@@ -41,7 +41,7 @@
  */
 
 #define INITGUID
-
+#define RIFFA_EXPORTS
 #include <windows.h>
 #include <setupapi.h>
 #include <stdio.h>
@@ -114,7 +114,7 @@ int RIFFACALL fpga_send(fpga_t * fpga, int chnl, void * data, int len,
 	// Validate the device handle
 	if (fpga->dev == NULL || fpga->dev == INVALID_HANDLE_VALUE) {
 		printf("Invalid fpga_t device handle\n");
-		return 0;
+		return -1;
 	}
 
 	// Initialize the RIFFA_FPGA_CHNL_IO struct
@@ -144,10 +144,12 @@ int RIFFACALL fpga_send(fpga_t * fpga, int chnl, void * data, int len,
 					printf("Operation timed out or was aborted\n");
 				else
 					printf("Error in GetOverlappedResult: %d\n", GetLastError());
+                return -1000 - wordsReturned;
 			}
 		}
 		else {
 			printf("Error in DeviceIoControl: %d\n", GetLastError());
+            return -1;
 		}
 	}
 	return wordsReturned;
@@ -164,7 +166,7 @@ int RIFFACALL fpga_recv(fpga_t * fpga, int chnl, void * data, int len,
 	// Validate the device handle
 	if (fpga->dev == NULL || fpga->dev == INVALID_HANDLE_VALUE) {
 		printf("Invalid fpga_t device handle\n");
-		return 0;
+		return -1;
 	}
 
 	// Initialize the RIFFA_FPGA_CHNL_IO struct
@@ -192,12 +194,15 @@ int RIFFACALL fpga_recv(fpga_t * fpga, int chnl, void * data, int len,
 					printf("Operation timed out or was aborted\n");
 				else
 					printf("Error in GetOverlappedResult: %d\n", GetLastError());
+                return -1000 - wordsReturned;
 			}
 		}
 		else {
 			printf("Error in DeviceIoControl: %d\n", GetLastError());
+            return -1;
 		}
 	}
+    CloseHandle(evt);
 	return wordsReturned;
 }
 
@@ -419,5 +424,10 @@ DWORD fill_device_info(fpga_info_list * info) {
 	return 0;
 }
 
-
+BOOL WINAPI DllMain(IN HINSTANCE hDllHandle,
+	IN DWORD     nReason,
+	IN LPVOID    Reserved)
+{
+	return TRUE;
+}
 
