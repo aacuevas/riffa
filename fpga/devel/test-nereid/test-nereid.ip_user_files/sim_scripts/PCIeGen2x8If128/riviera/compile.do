@@ -1,0 +1,60 @@
+vlib work
+vlib riviera
+
+vlib riviera/xpm
+vlib riviera/xil_defaultlib
+
+vmap xpm riviera/xpm
+vmap xil_defaultlib riviera/xil_defaultlib
+
+vlog -work xpm  -sv2k12 \
+"C:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
+"C:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
+
+vcom -work xpm -93 \
+"C:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_VCOMP.vhd" \
+
+vlog -work xil_defaultlib  -v2k5 \
+"../../../../test-nereid.srcs/sources_1/ip/PCIeGen2x8If128/source/PCIeGen2x8If128_pipe_clock.v" \
+"../../../../test-nereid.srcs/sources_1/ip/PCIeGen2x8If128/source/PCIeGen2x8If128_pipe_eq.v" \
+"../../../../test-nereid.srcs/sources_1/ip/PCIeGen2x8If128/source/PCIeGen2x8If128_pipe_drp.v" \
+"../../../../test-nereid.srcs/sources_1/ip/PCIeGen2x8If128/source/PCIeGen2x8If128_pipe_rate.v" \
+"../../../../test-nereid.srcs/sources_1/ip/PCIeGen2x8If128/source/PCIeGen2x8If128_pipe_reset.v" \
+"../../../../test-nereid.srcs/sources_1/ip/PCIeGen2x8If128/source/PCIeGen2x8If128_pipe_sync.v" \
+"../../../../test-nereid.srcs/sources_1/ip/PCIeGen2x8If128/source/PCIeGen2x8If128_gtp_pipe_rate.v" \
+"../../../../test-nereid.srcs/sources_1/ip/PCIeGen2x8If128/source/PCIeGen2x8If128_gtp_pipe_drp.v" \
+"../../../../test-nereid.srcs/sources_1/ip/PCIeGen2x8If128/source/PCIeGen2x8If128_gtp_pipe_reset.v" \
+"../../../../test-nereid.srcs/sources_1/ip/PCIeGen2x8If128/source/PCIeGen2x8If128_pipe_user.v" \
+"../../../../test-nereid.srcs/sources_1/ip/PCIeGen2x8If128/source/PCIeGen2x8If128_pipe_wrapper.v" \
+"../../../../test-nereid.srcs/sources_1/ip/PCIeGen2x8If128/source/PCIeGen2x8If128_qpll_drp.v" \
+"../../../../test-nereid.srcs/sources_1/ip/PCIeGen2x8If128/source/PCIeGen2x8If128_qpll_reset.v" \
+"../../../../test-nereid.srcs/sources_1/ip/PCIeGen2x8If128/source/PCIeGen2x8If128_qpll_wrapper.v" \
+"../../../../test-nereid.srcs/sources_1/ip/PCIeGen2x8If128/source/PCIeGen2x8If128_rxeq_scan.v" \
+"../../../../test-nereid.srcs/sources_1/ip/PCIeGen2x8If128/source/PCIeGen2x8If128_pcie_top.v" \
+"../../../../test-nereid.srcs/sources_1/ip/PCIeGen2x8If128/source/PCIeGen2x8If128_core_top.v" \
+"../../../../test-nereid.srcs/sources_1/ip/PCIeGen2x8If128/source/PCIeGen2x8If128_axi_basic_rx_null_gen.v" \
+"../../../../test-nereid.srcs/sources_1/ip/PCIeGen2x8If128/source/PCIeGen2x8If128_axi_basic_rx_pipeline.v" \
+"../../../../test-nereid.srcs/sources_1/ip/PCIeGen2x8If128/source/PCIeGen2x8If128_axi_basic_rx.v" \
+"../../../../test-nereid.srcs/sources_1/ip/PCIeGen2x8If128/source/PCIeGen2x8If128_axi_basic_top.v" \
+"../../../../test-nereid.srcs/sources_1/ip/PCIeGen2x8If128/source/PCIeGen2x8If128_axi_basic_tx_pipeline.v" \
+"../../../../test-nereid.srcs/sources_1/ip/PCIeGen2x8If128/source/PCIeGen2x8If128_axi_basic_tx_thrtl_ctl.v" \
+"../../../../test-nereid.srcs/sources_1/ip/PCIeGen2x8If128/source/PCIeGen2x8If128_axi_basic_tx.v" \
+"../../../../test-nereid.srcs/sources_1/ip/PCIeGen2x8If128/source/PCIeGen2x8If128_pcie_7x.v" \
+"../../../../test-nereid.srcs/sources_1/ip/PCIeGen2x8If128/source/PCIeGen2x8If128_pcie_bram_7x.v" \
+"../../../../test-nereid.srcs/sources_1/ip/PCIeGen2x8If128/source/PCIeGen2x8If128_pcie_bram_top_7x.v" \
+"../../../../test-nereid.srcs/sources_1/ip/PCIeGen2x8If128/source/PCIeGen2x8If128_pcie_brams_7x.v" \
+"../../../../test-nereid.srcs/sources_1/ip/PCIeGen2x8If128/source/PCIeGen2x8If128_pcie_pipe_lane.v" \
+"../../../../test-nereid.srcs/sources_1/ip/PCIeGen2x8If128/source/PCIeGen2x8If128_pcie_pipe_misc.v" \
+"../../../../test-nereid.srcs/sources_1/ip/PCIeGen2x8If128/source/PCIeGen2x8If128_pcie_pipe_pipeline.v" \
+"../../../../test-nereid.srcs/sources_1/ip/PCIeGen2x8If128/source/PCIeGen2x8If128_gt_top.v" \
+"../../../../test-nereid.srcs/sources_1/ip/PCIeGen2x8If128/source/PCIeGen2x8If128_gt_common.v" \
+"../../../../test-nereid.srcs/sources_1/ip/PCIeGen2x8If128/source/PCIeGen2x8If128_gtp_cpllpd_ovrd.v" \
+"../../../../test-nereid.srcs/sources_1/ip/PCIeGen2x8If128/source/PCIeGen2x8If128_gtx_cpllpd_ovrd.v" \
+"../../../../test-nereid.srcs/sources_1/ip/PCIeGen2x8If128/source/PCIeGen2x8If128_gt_rx_valid_filter_7x.v" \
+"../../../../test-nereid.srcs/sources_1/ip/PCIeGen2x8If128/source/PCIeGen2x8If128_gt_wrapper.v" \
+"../../../../test-nereid.srcs/sources_1/ip/PCIeGen2x8If128/source/PCIeGen2x8If128_pcie2_top.v" \
+"../../../../test-nereid.srcs/sources_1/ip/PCIeGen2x8If128/sim/PCIeGen2x8If128.v" \
+
+vlog -work xil_defaultlib \
+"glbl.v"
+

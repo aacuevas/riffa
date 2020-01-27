@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Mon Jan 13 04:15:31 2020
+# Process ID: 15196
+# Current directory: Y:/dev/open-ephys/ONI/riffa/fpga/devel/test-nereid/test-nereid.runs/impl_1
+# Command line: vivado.exe -log KC705_Gen2x8If128.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source KC705_Gen2x8If128.tcl -notrace
+# Log file: Y:/dev/open-ephys/ONI/riffa/fpga/devel/test-nereid/test-nereid.runs/impl_1/KC705_Gen2x8If128.vdi
+# Journal file: Y:/dev/open-ephys/ONI/riffa/fpga/devel/test-nereid/test-nereid.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source KC705_Gen2x8If128.tcl -notrace
