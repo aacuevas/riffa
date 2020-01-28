@@ -620,7 +620,7 @@ static inline unsigned int chnl_recv(struct fpga_state * sc, int chnl,
 				printk(KERN_ERR "riffa: fpga:%d chnl:%d, recv timed out\n", sc->id, chnl);
 				free_sg_buf(sc, sc->recv[chnl]->sg_map_0);
 				free_sg_buf(sc, sc->recv[chnl]->sg_map_1);
-				return (unsigned int)(recvd>>2);
+				return (unsigned int)(-100 - (recvd>>2));
 			}
 		}
 		tymeout = tymeouto;
@@ -840,7 +840,7 @@ static inline unsigned int chnl_send(struct fpga_state * sc, int chnl,
 				printk(KERN_ERR "riffa: fpga:%d chnl:%d, send timed out\n", sc->id, chnl);
 				free_sg_buf(sc, sc->send[chnl]->sg_map_0);
 				free_sg_buf(sc, sc->send[chnl]->sg_map_1);
-				return (unsigned int)(sent>>2);
+				return (unsigned int)(-100 - (sent>>2));
 			}
 		}
 		tymeout = tymeouto;
